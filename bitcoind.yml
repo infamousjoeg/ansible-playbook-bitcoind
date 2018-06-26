@@ -1,0 +1,13 @@
+- hosts: localhost
+  connection: local
+  
+  tasks:
+  - name: Start Up Container
+      docker_container:
+        name: cicd_InsecureDemo_test
+        image: kylemanna/bitcoind:latest
+        ports:
+          - "8333:8333"
+          - "0.0.0.0:8332:8332"
+        volumes:
+          - bitcoind-data:/bitcoin
