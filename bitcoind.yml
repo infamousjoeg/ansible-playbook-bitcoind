@@ -1,15 +1,14 @@
-- hosts: localhost
-  connection: local
-  
+- hosts: all
+
   vars:
     ansible_ssh_private_key_file: /tmp/id_rsa
     ansible_user: cicd_service_account
   
   tasks:
-  - name: Start Up Container
-    docker_container:
-      name: cicd_InsecureDemo_test
-      image: kylemanna/bitcoind:latest
-      ports:
-        - "8333:8333"
-        - "0.0.0.0:8332:8332"
+    - name: Start Up Container
+      docker_container:
+        name: cicd_InsecureDemo_test
+        image: kylemanna/bitcoind:latest
+        ports:
+          - "8333:8333"
+          - "0.0.0.0:8332:8332"
