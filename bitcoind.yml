@@ -2,6 +2,8 @@
   connection: local
   
   tasks:
+  - name: Install docker-py
+    shell: pip install docker-py
   - name: Start Up Container
     docker_container:
       name: cicd_InsecureDemo_test
